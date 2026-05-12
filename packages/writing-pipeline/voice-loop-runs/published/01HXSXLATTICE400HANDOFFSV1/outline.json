@@ -1,0 +1,110 @@
+{
+  "beats": [
+    {
+      "type": "opener",
+      "summary": "Open with the moment I saw 91 of 100 L2 validations escalate to L3 in the audit log. This is the honest finding, not the flattering one. Set up the tension: I built a coordination layer, ran 400 real handoffs through it, got a 93% pass rate — and the number that actually matters is the one that shows my middle validation tier was nearly useless for creative steps. Mention shadow mode briefly (validated and logged, never blocked the pipeline). The hook is that I could have shipped the 93% number alone and looked great, but the L2 finding is what actually moves the field.",
+      "uses_facts": [
+        12,
+        13,
+        15,
+        26
+      ],
+      "uses_anchors": [
+        2,
+        4,
+        5
+      ]
+    },
+    {
+      "type": "scene",
+      "summary": "Lay out the problem space. Multi-agent AI fails at 80-87% across every recent study — MAST (NeurIPS 2025, 1600+ traces, up to 87%), Runcycles (March 2026, production deployments, up to 87%), Talyx (2026 enterprise, 80-90%). The critical MAST finding: better models improved success rates by less than 5%. Gartner predicts 40% of agentic AI projects cancelled by 2027. 80% of enterprise apps embed agents but only 31% have anything in production. The failures aren't about model quality. They're about coordination. Introduce the threading-libraries analogy in one tight paragraph — concurrent programming solved this 60 years ago with mutexes, semaphores, and message passing. Multi-agent coordination has the same category of problem: shared state, race conditions, silent failures. A 200 OK with garbage downstream is the multi-agent equivalent of a deadlock nobody notices until production falls over.",
+      "uses_facts": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "uses_anchors": [
+        0,
+        1
+      ]
+    },
+    {
+      "type": "scene",
+      "summary": "Introduce Lattice. Open source, MIT license, framework-agnostic (wraps any agent function in LangGraph, CrewAI, Mastra, or raw TypeScript/Python). Three primitives: State Contracts (carry inputs, decisions, outputs, constraints, assumptions — full lineage per action, shared traceId per run), Circuit Breakers (L1/L2/L3 tiered validation), and Pipeline orchestration. Explain each tier concisely: L1 is JSON Schema validation, sub-200ms, zero LLM calls. L2 is embedding similarity (text-embedding-3-small, threshold 0.85), ~600ms. L3 is LLM-as-judge (gpt-4o-mini, confidence threshold 0.7), ~25s. Mention the packages. The key framing: each tier is designed for what it's actually good at, not for what you wish it did. That distinction turned out to matter more than I expected.",
+      "uses_facts": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        30,
+        31,
+        32,
+        33
+      ],
+      "uses_anchors": [
+        3
+      ]
+    },
+    {
+      "type": "turn",
+      "summary": "The benchmark and the honest numbers. 50 documentation topics, 5 agent steps per topic, 400 handoff validations, shadow mode inside our production content pipeline (Forge). Total wall-clock time: 1 hour 43 minutes. Zero crashes. Overall pass rate 93% (372/400). Then the per-step breakdown, presented as a clear comparison: Research 78%, Outline 94%, Drafter 87%, Reviewer 99%, Formatter 100%. L1 pass rate 100%. L2 pass rate 91% (but 150 handoffs skipped L2 by policy, and 91 of 100 actual L2 runs escalated to L3). L3 pass rate 92.1% (222/241). Latency data: L1 mean <200ms, L2 mean 627ms with P95 at 9.0s and max 13.8s, L3 mean 25.4s with P95 at 63.2s and max 110.2s. Present the full audit log and aggregated report links as public data. The tone here is factual — lay it all out honestly so the next beat can interpret it.",
+      "uses_facts": [
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        34,
+        35
+      ],
+      "uses_anchors": [
+        5
+      ]
+    },
+    {
+      "type": "reflection",
+      "summary": "Interpret the surprise findings. The 91/100 L2 escalation is the headline. L2 (embedding similarity) works fine for structural-consistency steps — does this outline match the contract from research? — but for creative steps like drafting and reviewing, the output is supposed to diverge from the input. Embedding similarity punishes creativity. That's why 150 handoffs were configured to skip L2 entirely (drafter, reviewer, formatter), and why per-step L2 configuration was added mid-benchmark after seeing the data. The right configuration: Research→Outline uses L1+L2; Outline→Draft uses L1+L3; Draft→Review uses L1+L3; Review→Format uses L1 only. Then the L3 confidence distribution: 99% of calls (239/241) landed in the 0.8-1.0 band, only 2 in the uncertain 0.6-0.8 band. When L3 is confident, it's very confident. Almost no noise in the middle. L2 catches drift; L3 catches quality. They aren't substitutes — they're complements, and you have to route work to the right one. This is where the thesis lands: coordination failures are architectural, not model-capability problems. Tiered validation works, but you have to design each tier for what it's actually good at.",
+      "uses_facts": [
+        18,
+        19,
+        20,
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "uses_anchors": [
+        2,
+        3,
+        6,
+        7
+      ]
+    },
+    {
+      "type": "closer",
+      "summary": "Brief forward look: building an observability dashboard next (web UI for the audit trail), no committed ship date. Drop the links: Lattice GitHub, audit log, aggregated report. End on a short beat — something deflating or concrete, not a summary of lessons learned. Maybe a callback to the 91/100 number, or a one-liner about the fact that the boring infrastructure is what makes the interesting work possible. Keep it tight.",
+      "uses_facts": [
+        36,
+        37,
+        38
+      ],
+      "uses_anchors": [
+        4
+      ]
+    }
+  ]
+}

@@ -1,0 +1,212 @@
+{
+  "totalClaims": 0,
+  "citedClaims": 0,
+  "violations": [],
+  "citations": [
+    {
+      "index": 0,
+      "offset": 733,
+      "valid": true
+    },
+    {
+      "index": 1,
+      "offset": 868,
+      "valid": true
+    },
+    {
+      "index": 2,
+      "offset": 947,
+      "valid": true
+    },
+    {
+      "index": 3,
+      "offset": 1156,
+      "valid": true
+    },
+    {
+      "index": 4,
+      "offset": 1305,
+      "valid": true
+    },
+    {
+      "index": 5,
+      "offset": 1430,
+      "valid": true
+    },
+    {
+      "index": 6,
+      "offset": 2156,
+      "valid": true
+    },
+    {
+      "index": 11,
+      "offset": 2254,
+      "valid": true
+    },
+    {
+      "index": 7,
+      "offset": 2383,
+      "valid": true
+    },
+    {
+      "index": 30,
+      "offset": 2494,
+      "valid": true
+    },
+    {
+      "index": 32,
+      "offset": 2556,
+      "valid": true
+    },
+    {
+      "index": 31,
+      "offset": 2677,
+      "valid": true
+    },
+    {
+      "index": 7,
+      "offset": 2751,
+      "valid": true
+    },
+    {
+      "index": 8,
+      "offset": 2817,
+      "valid": true
+    },
+    {
+      "index": 9,
+      "offset": 3001,
+      "valid": true
+    },
+    {
+      "index": 10,
+      "offset": 3182,
+      "valid": true
+    },
+    {
+      "index": 33,
+      "offset": 3440,
+      "valid": true
+    },
+    {
+      "index": 12,
+      "offset": 3730,
+      "valid": true
+    },
+    {
+      "index": 13,
+      "offset": 3823,
+      "valid": true
+    },
+    {
+      "index": 14,
+      "offset": 3987,
+      "valid": true
+    },
+    {
+      "index": 16,
+      "offset": 4021,
+      "valid": true
+    },
+    {
+      "index": 15,
+      "offset": 4074,
+      "valid": true
+    },
+    {
+      "index": 21,
+      "offset": 4260,
+      "valid": true
+    },
+    {
+      "index": 17,
+      "offset": 4636,
+      "valid": true
+    },
+    {
+      "index": 18,
+      "offset": 4753,
+      "valid": true
+    },
+    {
+      "index": 19,
+      "offset": 4814,
+      "valid": true
+    },
+    {
+      "index": 22,
+      "offset": 4900,
+      "valid": true
+    },
+    {
+      "index": 23,
+      "offset": 4981,
+      "valid": true
+    },
+    {
+      "index": 24,
+      "offset": 5070,
+      "valid": true
+    },
+    {
+      "index": 34,
+      "offset": 5421,
+      "valid": true
+    },
+    {
+      "index": 35,
+      "offset": 5549,
+      "valid": true
+    },
+    {
+      "index": 26,
+      "offset": 5731,
+      "valid": true
+    },
+    {
+      "index": 9,
+      "offset": 5963,
+      "valid": true
+    },
+    {
+      "index": 27,
+      "offset": 6720,
+      "valid": true
+    },
+    {
+      "index": 28,
+      "offset": 6810,
+      "valid": true
+    },
+    {
+      "index": 29,
+      "offset": 7045,
+      "valid": true
+    },
+    {
+      "index": 20,
+      "offset": 7176,
+      "valid": true
+    },
+    {
+      "index": 25,
+      "offset": 7245,
+      "valid": true
+    },
+    {
+      "index": 37,
+      "offset": 7933,
+      "valid": true
+    },
+    {
+      "index": 38,
+      "offset": 8063,
+      "valid": true
+    },
+    {
+      "index": 36,
+      "offset": 8208,
+      "valid": true
+    }
+  ]
+}

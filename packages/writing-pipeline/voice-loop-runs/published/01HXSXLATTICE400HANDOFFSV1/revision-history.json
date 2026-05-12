@@ -1,0 +1,42 @@
+{
+  "passes": [
+    {
+      "passIndex": 1,
+      "accepted": true,
+      "decisionNote": "Pass 1 accepted: composite 0.378 -> 0.585; voice_match 0.389 -> 0.597.",
+      "compositeScore": 0.585,
+      "critique_scores": {
+        "voice_match": 0.597,
+        "slop_per_kilochar": 0.12,
+        "slop_total": 1
+      },
+      "costUsd": 0.0817395,
+      "usage": {
+        "input_tokens": 4422,
+        "output_tokens": 2252,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 6659
+      }
+    },
+    {
+      "passIndex": 2,
+      "accepted": false,
+      "decisionNote": "Pass 2 rejected: composite regressed 0.585 -> 0.471; voice_match 0.597 -> 0.483. Keeping previous draft.",
+      "compositeScore": 0.4709,
+      "critique_scores": {
+        "voice_match": 0.483,
+        "slop_per_kilochar": 0.121,
+        "slop_total": 1
+      },
+      "costUsd": 0.07900449999999999,
+      "usage": {
+        "input_tokens": 4030,
+        "output_tokens": 2221,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 6659
+      }
+    }
+  ],
+  "stopReason": "regression",
+  "totalCostUsd": 0.160744
+}

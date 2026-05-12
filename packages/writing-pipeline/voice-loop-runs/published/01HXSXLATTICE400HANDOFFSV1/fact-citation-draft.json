@@ -1,0 +1,262 @@
+{
+  "totalClaims": 0,
+  "citedClaims": 0,
+  "violations": [],
+  "citations": [
+    {
+      "index": 6,
+      "offset": 464,
+      "valid": true
+    },
+    {
+      "index": 12,
+      "offset": 573,
+      "valid": true
+    },
+    {
+      "index": 13,
+      "offset": 654,
+      "valid": true
+    },
+    {
+      "index": 13,
+      "offset": 784,
+      "valid": true
+    },
+    {
+      "index": 15,
+      "offset": 842,
+      "valid": true
+    },
+    {
+      "index": 26,
+      "offset": 960,
+      "valid": true
+    },
+    {
+      "index": 0,
+      "offset": 1404,
+      "valid": true
+    },
+    {
+      "index": 1,
+      "offset": 1539,
+      "valid": true
+    },
+    {
+      "index": 2,
+      "offset": 1618,
+      "valid": true
+    },
+    {
+      "index": 3,
+      "offset": 1827,
+      "valid": true
+    },
+    {
+      "index": 4,
+      "offset": 1976,
+      "valid": true
+    },
+    {
+      "index": 5,
+      "offset": 2100,
+      "valid": true
+    },
+    {
+      "index": 6,
+      "offset": 2807,
+      "valid": true
+    },
+    {
+      "index": 11,
+      "offset": 2836,
+      "valid": true
+    },
+    {
+      "index": 7,
+      "offset": 2966,
+      "valid": true
+    },
+    {
+      "index": 30,
+      "offset": 3077,
+      "valid": true
+    },
+    {
+      "index": 32,
+      "offset": 3139,
+      "valid": true
+    },
+    {
+      "index": 31,
+      "offset": 3260,
+      "valid": true
+    },
+    {
+      "index": 7,
+      "offset": 3335,
+      "valid": true
+    },
+    {
+      "index": 8,
+      "offset": 3401,
+      "valid": true
+    },
+    {
+      "index": 9,
+      "offset": 3568,
+      "valid": true
+    },
+    {
+      "index": 10,
+      "offset": 3756,
+      "valid": true
+    },
+    {
+      "index": 33,
+      "offset": 3999,
+      "valid": true
+    },
+    {
+      "index": 12,
+      "offset": 4290,
+      "valid": true
+    },
+    {
+      "index": 13,
+      "offset": 4326,
+      "valid": true
+    },
+    {
+      "index": 14,
+      "offset": 4378,
+      "valid": true
+    },
+    {
+      "index": 16,
+      "offset": 4412,
+      "valid": true
+    },
+    {
+      "index": 15,
+      "offset": 4465,
+      "valid": true
+    },
+    {
+      "index": 21,
+      "offset": 4553,
+      "valid": true
+    },
+    {
+      "index": 21,
+      "offset": 4591,
+      "valid": true
+    },
+    {
+      "index": 21,
+      "offset": 4630,
+      "valid": true
+    },
+    {
+      "index": 21,
+      "offset": 4670,
+      "valid": true
+    },
+    {
+      "index": 21,
+      "offset": 4713,
+      "valid": true
+    },
+    {
+      "index": 17,
+      "offset": 5062,
+      "valid": true
+    },
+    {
+      "index": 18,
+      "offset": 5175,
+      "valid": true
+    },
+    {
+      "index": 19,
+      "offset": 5236,
+      "valid": true
+    },
+    {
+      "index": 22,
+      "offset": 5322,
+      "valid": true
+    },
+    {
+      "index": 23,
+      "offset": 5403,
+      "valid": true
+    },
+    {
+      "index": 24,
+      "offset": 5492,
+      "valid": true
+    },
+    {
+      "index": 34,
+      "offset": 5832,
+      "valid": true
+    },
+    {
+      "index": 35,
+      "offset": 5956,
+      "valid": true
+    },
+    {
+      "index": 26,
+      "offset": 6139,
+      "valid": true
+    },
+    {
+      "index": 9,
+      "offset": 6371,
+      "valid": true
+    },
+    {
+      "index": 27,
+      "offset": 7142,
+      "valid": true
+    },
+    {
+      "index": 28,
+      "offset": 7232,
+      "valid": true
+    },
+    {
+      "index": 29,
+      "offset": 7468,
+      "valid": true
+    },
+    {
+      "index": 20,
+      "offset": 7625,
+      "valid": true
+    },
+    {
+      "index": 25,
+      "offset": 7694,
+      "valid": true
+    },
+    {
+      "index": 37,
+      "offset": 8695,
+      "valid": true
+    },
+    {
+      "index": 38,
+      "offset": 8825,
+      "valid": true
+    },
+    {
+      "index": 36,
+      "offset": 8970,
+      "valid": true
+    }
+  ]
+}

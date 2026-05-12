@@ -1,0 +1,31 @@
+{
+  "task_id": "01HXSXLATTICE400HANDOFFSV1",
+  "model": "anthropic/claude-opus-4.6",
+  "totalCostUsd": 0.2273,
+  "costCeilingUsd": 0.4,
+  "stageCostsUsd": {
+    "draft": 0.0881,
+    "critique": 0.0411,
+    "revise": 0.0981
+  },
+  "stageUsage": {
+    "draft": {
+      "input_tokens": 2174,
+      "output_tokens": 3089,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0
+    },
+    "critique": {
+      "input_tokens": 3658,
+      "output_tokens": 913,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0
+    },
+    "revise": {
+      "input_tokens": 4174,
+      "output_tokens": 3090,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0
+    }
+  }
+}

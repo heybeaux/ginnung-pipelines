@@ -33,7 +33,11 @@
     "build": "tsup",
     "test": "vitest run",
     "test:watch": "vitest",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "idea": "tsx scripts/capture-idea.ts",
+    "pipeline": "tsx scripts/run-pipeline.ts",
+    "baseline": "tsx scripts/run-baseline.ts",
+    "verify-chain": "tsx scripts/verify-chain.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.95.2"

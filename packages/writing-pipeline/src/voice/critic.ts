@@ -83,6 +83,10 @@ export interface FeatureDelta {
   delta: number;
   /** abs(delta) / max(baseline, tolerance). 0 = perfect, 1 = off by a baseline. */
   normalisedDrift: number;
+  /** 'under' (observed below baseline), 'over' (above), 'normal' (in band). */
+  direction: 'under' | 'over' | 'normal';
+  /** Severity assigned by the asymmetric scoring policy ('low' | 'medium' | 'high'). */
+  severity: 'low' | 'medium' | 'high';
 }
 
 export interface FingerprintDelta {
@@ -140,6 +144,38 @@ const DEFAULT_DRIFT_TOLERANCES: Record<string, number> = {
   profanity_per_1000_words: 1.5,
   mean_sentences_per_paragraph: 2,
 };
+
+/**
+ * Phase 3 asymmetric scoring policy.
+ *
+ * For markers / ellipses / profanity / parentheticals: under-use is a low-
+ * severity flag ("feels slightly off"), over-use beyond 200% baseline is a
+ * high-severity flag ("performance detected"), and 50%-200% is the normal
+ * band where no Issue fires.
+ *
+ * Direct address remains symmetric: both under- and over-use are register-
+ * breaking. Em-dash is overflow-only (corpus is zero, so any usage is over).
+ *
+ * Features absent from this map default to symmetric behaviour with the
+ * existing half-tolerance gate.
+ */
+type AsymmetryPolicy = 'asymmetric' | 'symmetric' | 'overflow_only';
+
+const FEATURE_ASYMMETRY: Record<string, AsymmetryPolicy> = {
+  aussie_markers_per_1000_words: 'asymmetric',
+  parentheticals_per_1000_words: 'asymmetric',
+  mid_sentence_ellipses_per_1000_words: 'asymmetric',
+  profanity_per_1000_words: 'asymmetric',
+  direct_address_per_1000_words: 'symmetric',
+  em_dash_interruptions_per_1000_words: 'overflow_only',
+};
+
+/**
+ * For asymmetric features, the lower and upper multiples of the baseline that
+ * bound the "normal" band. <50% of baseline = under-use; >200% = over-use.
+ */
+const ASYMMETRIC_UNDER_RATIO = 0.5;
+const ASYMMETRIC_OVER_RATIO = 2.0;
 
 // ---------------------------------------------------------------------------
 // Entrypoint
@@ -242,12 +278,20 @@ function buildFingerprintDelta(
     const delta = round3(observed - baseline);
     const tol = tolerances[feature] ?? Math.max(baseline, 1);
     const norm = clamp01(Math.abs(delta) / Math.max(tol, 0.0001));
+    const { direction, severity } = classifyAsymmetry(
+      feature,
+      observed,
+      baseline,
+      norm,
+    );
     features.push({
       feature,
       observed: round3(observed),
       baseline: round3(baseline),
       delta,
       normalisedDrift: round3(norm),
+      direction,
+      severity,
     });
   };
 
@@ -297,15 +341,87 @@ function buildFingerprintDelta(
     base.profanity.profanity_per_1000_words,
   );
 
+  // meanDrift only counts features whose direction is not 'normal'. In the
+  // asymmetric policy, a feature inside the [0.5x, 2x] band contributes zero
+  // to drift — that's the whole point of "don't suppress, don't over-target".
+  // Features still in 'normal' are kept in the array (so the report can show
+  // them) but their drift contribution is zeroed.
+  const driftContributions = features.map((f) =>
+    f.direction === 'normal' ? 0 : f.normalisedDrift,
+  );
   const meanDrift =
     features.length === 0
       ? 0
-      : features.reduce((a, f) => a + f.normalisedDrift, 0) / features.length;
+      : driftContributions.reduce((a, x) => a + x, 0) / features.length;
 
   return {
     total_words: totalWords,
     features,
     meanDrift: round3(clamp01(meanDrift)),
+  };
+}
+
+/**
+ * Apply the asymmetric scoring policy to a single feature.
+ *
+ * Returns the direction (under / over / normal) and the severity tag (low /
+ * medium / high) that `buildIssues` uses to decide whether to emit an Issue.
+ *
+ * Policy summary:
+ *   - 'asymmetric': over-use beyond 2x baseline = high; under-use below
+ *     0.5x baseline = low; otherwise normal.
+ *   - 'symmetric': either direction emits at half-tolerance (legacy
+ *     behaviour); severity scales with normalisedDrift.
+ *   - 'overflow_only': any observed > baseline triggers high severity.
+ *   - default (no entry): same as 'symmetric'.
+ */
+function classifyAsymmetry(
+  feature: string,
+  observed: number,
+  baseline: number,
+  normalisedDrift: number,
+): {
+  direction: 'under' | 'over' | 'normal';
+  severity: 'low' | 'medium' | 'high';
+} {
+  const policy = FEATURE_ASYMMETRY[feature] ?? 'symmetric';
+  const direction: 'under' | 'over' | 'normal' =
+    observed < baseline ? 'under' : observed > baseline ? 'over' : 'normal';
+
+  if (policy === 'overflow_only') {
+    if (observed <= baseline) {
+      return { direction: 'normal', severity: 'low' };
+    }
+    return { direction: 'over', severity: 'high' };
+  }
+
+  if (policy === 'asymmetric') {
+    // For asymmetric features, only fire if observed is OUTSIDE the
+    // [0.5x, 2x] band around baseline. Baseline of zero is a special case
+    // — any observed > 0 counts as over-use because there's no normal band.
+    if (baseline === 0) {
+      if (observed === 0) return { direction: 'normal', severity: 'low' };
+      return { direction: 'over', severity: 'high' };
+    }
+    const ratio = observed / baseline;
+    if (ratio < ASYMMETRIC_UNDER_RATIO) {
+      return { direction: 'under', severity: 'low' };
+    }
+    if (ratio > ASYMMETRIC_OVER_RATIO) {
+      return { direction: 'over', severity: 'high' };
+    }
+    return { direction: 'normal', severity: 'low' };
+  }
+
+  // Symmetric (default) — fire when normalisedDrift >= 0.5, severity scales
+  // with normalisedDrift. Preserves the legacy behaviour for direct-address
+  // and the sentence-shape features.
+  if (normalisedDrift < 0.5) {
+    return { direction: 'normal', severity: 'low' };
+  }
+  return {
+    direction,
+    severity: normalisedDrift >= 0.9 ? 'high' : 'medium',
   };
 }
 
@@ -359,18 +475,17 @@ function buildIssues(
     });
   }
 
-  // 4. Per-feature fingerprint drift → one Issue per feature that exceeds
-  //    half the tolerance. Half-tolerance is intentional: at full tolerance
-  //    the score is already 0, but we want to surface concern earlier.
+  // 4. Per-feature fingerprint drift — gated by the asymmetric policy.
+  //    Issue severity comes from FeatureDelta.severity (computed at classify
+  //    time). Features in 'normal' direction get no Issue.
   for (const f of delta.features) {
-    if (f.normalisedDrift >= 0.5) {
-      issues.push({
-        kind: 'fingerprint_drift',
-        severity: f.normalisedDrift >= 0.9 ? 'high' : 'medium',
-        diagnosis: diagnosisForFeature(f),
-        suggestion: suggestionForFeature(f),
-      });
-    }
+    if (f.direction === 'normal') continue;
+    issues.push({
+      kind: 'fingerprint_drift',
+      severity: f.severity,
+      diagnosis: diagnosisForFeature(f),
+      suggestion: suggestionForFeature(f),
+    });
   }
 
   // 5. Voice-marker-missing: zero Aussie markers in a piece long enough that

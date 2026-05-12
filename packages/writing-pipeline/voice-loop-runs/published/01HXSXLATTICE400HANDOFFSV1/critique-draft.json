@@ -1,0 +1,195 @@
+{
+  "bodyAnalysed": "Ninety-one out of a hundred.\n\nThat's the number I kept staring at in the audit log. Not the 93% overall pass rate, which is the number you'd put on a slide if you wanted to look impressive. The number that actually matters is the one that told me my middle validation tier was nearly useless for creative work.\n\nLet me back up. I built Lattice [fact:6], an open-source coordination layer for multi-agent AI pipelines. I ran 400 real handoff validations [fact:12] through it in shadow mode inside my production content pipeline, Forge [fact:13]. Shadow mode means every handoff produced a State Contract, got validated, got logged... but never blocked the pipeline [fact:13]. The overall pass rate was 93% (372 out of 400) [fact:15]. And I could have shipped that number alone and looked great.\n\nBut 91 of 100 L2 validations escalated to L3 [fact:26]. My embedding-similarity layer, the one I'd designed to sit between cheap schema checks and expensive LLM-as-judge calls, was doing almost nothing for the steps that mattered most. That's the finding worth writing about.\n\n## The 87% problem\n\nMulti-agent AI has a coordination problem that nobody wants to talk about honestly.\n\nThe MAST paper out of NeurIPS 2025 studied over 1,600 multi-agent traces and found failure rates up to 87% [fact:0]. Runcycles published a study in March 2026 looking at production deployments and landed at the same number: up to 87% failure [fact:1]. Talyx ran an enterprise study in 2026 and found 80-90% failure rates [fact:2]. Three independent studies, three versions of the same ugly result.\n\nHere's the part that should make you uncomfortable. The MAST paper found that better models improved success rates by less than 5% [fact:3]. Throwing a smarter model at the problem barely moves the needle. Gartner now predicts 40% of agentic AI projects will be cancelled by 2027 [fact:4]. And while 80% of enterprise apps embed agents in some form, only 31% have anything actually running in production [fact:5].\n\nThe failures are architectural. They're coordination problems.\n\nIf you've ever written concurrent software, this should feel familiar. Concurrent programming went through exactly this phase 60 years ago. Shared state, race conditions, deadlocks nobody noticed until production fell over. The solution wasn't faster CPUs. It was mutexes, semaphores, message passing... boring infrastructure that managed how threads talked to each other. Multi-agent AI has the same category of problem. A 200 OK with garbage downstream is the agentic equivalent of a deadlock that doesn't throw an error. Everything looks fine. Everything is broken.\n\n## What Lattice actually is\n\nLattice is open source under MIT [fact:6], framework-agnostic [fact:11] (it wraps any agent function in LangGraph, CrewAI, Mastra, or raw TypeScript/Python), and it gives you three primitives [fact:7].\n\nState Contracts carry full lineage per action: inputs, decisions, outputs, constraints, assumptions [fact:30]. Every handoff within a run shares the same traceId [fact:32], and each of the 50 runs in my benchmark produced about 8 handoff validations on average including escalations [fact:31].\n\nCircuit Breakers provide tiered validation across three levels [fact:7]. L1 is JSON Schema validation. Sub-200ms, zero LLM calls [fact:8]. It answers: did the agent return the right shape? L2 is embedding similarity using text-embedding-3-small with a threshold of 0.85, running at roughly 600ms [fact:9]. It answers: does this output semantically match the contract? L3 is LLM-as-judge using gpt-4o-mini with a confidence threshold of 0.7, and it costs you about 25 seconds per call [fact:10]. It answers: is this actually good?\n\nPipeline orchestration ties them together.\n\nThe packages are @heybeaux/lattice-core, @heybeaux/lattice-provider-openai, @heybeaux/lattice-adapter-mastra, and lattice-langgraph for Python (merged) [fact:33].\n\nThe design principle was that each tier should do what it's actually good at. Not what I wished it did. That distinction turned out to be the whole story.\n\n## The benchmark, honestly\n\nFifty documentation topics. Five agent steps per topic. Four hundred handoff validations total [fact:12]. Shadow mode inside Forge [fact:13]. Total wall-clock time: 1 hour 43 minutes [fact:14]. Zero pipelines crashed [fact:16].\n\nOverall pass rate: 93.0%, 372 out of 400 [fact:15].\n\nPer-step, it breaks down like this. Research passed 78% of the time (39/50) [fact:21]. Outline passed 94% (47/50) [fact:21]. Drafter passed 87% (87/100) [fact:21]. Reviewer passed 99% (99/100) [fact:21]. Formatter passed 100% (100/100) [fact:21].\n\nResearch is the weak link. That makes sense... it's the step where the agent is most unconstrained, pulling information from external sources, making judgment calls about what's relevant. The further downstream you go, the more the pipeline constrains the output, and the higher the pass rate climbs.\n\nTier-level pass rates: L1 was 100% [fact:17]. L2 was 91.0%, but that's 91 out of 100 actual L2 runs, and 150 handoffs skipped L2 entirely by policy [fact:18]. L3 passed 92.1% of the time, 222 out of 241 calls [fact:19].\n\nLatency is where the cost lives. L1 mean was under 200ms, P95 under 200ms [fact:22]. Cheap. L2 mean was 627ms, but P95 hit 9.0 seconds with a max of 13.8s [fact:23]. L3 mean was 25.4 seconds, P95 was 63.2 seconds, and the max was 110.2 seconds [fact:24]. That max is nearly two minutes for a single validation call. If you're running L3 on every handoff in a five-step pipeline, you're adding minutes to wall-clock time. It has to be worth it.\n\nThe full audit log (all 400 entries) is public at github.com/heybeaux/ops/blob/main/reports/lattice-shadow-audit-50topics-2026-05-08.jsonl [fact:34]. The aggregated report is at github.com/heybeaux/ops/blob/main/reports/lattice-benchmark-50topics-2026-05-08.json [fact:35]. Go look. I'm not hiding the ugly parts.\n\n## The L2 surprise and what it means\n\nThis is the finding I keep coming back to.\n\nNinety-one of 100 L2 validations escalated to L3 [fact:26]. My middle tier, the one I'd designed to catch semantic drift without burning an LLM call, was punting almost everything upstairs.\n\nIt took me a bit to understand why, and then it was obvious. L2 uses embedding similarity [fact:9]. It measures whether the output is semantically close to what the contract specified. For structural-consistency steps (does this outline match the contract from research?) that works. The output is supposed to be a faithful transformation of the input.\n\nBut for creative steps like drafting and reviewing, the output is supposed to diverge from the input. A good draft doesn't just reorganise the outline. It adds voice, examples, transitions, arguments the outline never specified. Embedding similarity punishes that. It sees divergence and flags it as drift. Which means L2 was escalating to L3 not because something was wrong, but because something was right.\n\nThat's why 150 handoffs were configured to skip L2 entirely (drafter, reviewer, formatter steps) [fact:27], and why per-step L2 configuration was added mid-benchmark after I saw the data [fact:28]. I didn't plan that configuration. The data forced it.\n\nThe right routing turned out to be: Research to Outline uses L1 plus L2. Outline to Draft uses L1 plus L3. Draft to Review uses L1 plus L3. Review to Format uses L1 only [fact:29].\n\nThen there's the L3 confidence distribution, which told its own story. 99% of L3 calls (239 out of 241) landed in the 0.8 to 1.0 confidence band [fact:20]. Only 2 out of 241 landed in the uncertain 0.6 to 0.8 band [fact:25]. When L3 is confident, it's very confident. The distribution is bimodal with almost nothing in the middle. That's actually reassuring... it means L3 isn't waffling. It knows when work is good and it knows when it isn't.\n\nL2 catches drift. L3 catches quality. They aren't substitutes. They're complements, and you have to route work to the right one based on what the step actually does. Not based on some idealised pipeline diagram where every handoff gets the same treatment.\n\nThis is where it all lands. The coordination failures I was seeing (and the ones showing up in those 87% failure rates across the literature) aren't about model capability. They're architectural. Tiered validation works. But you have to design each tier for what it's actually good at, not for what you wished it did. The threading-libraries people figured this out decades ago. Different synchronisation primitives for different access patterns. Same principle. Different domain.\n\n## What's next\n\nI run heybeaux [fact:37], a small dev shop where AI agents do real work in production. The next thing I'm building is an observability dashboard [fact:38]... a web UI for the audit trail so I can stop reading JSONL files like some kind of animal.\n\nLattice is at github.com/heybeaux/lattice [fact:36]. The audit data and aggregated report are public, links above.\n\nNinety-three percent is the number that looks good on a slide. Ninety-one out of a hundred is the number that actually taught me something.",
+  "slop": {
+    "total": 1,
+    "byCategory": {
+      "significance": 0,
+      "notability": 0,
+      "participles": 0,
+      "promotional": 0,
+      "weasel-attribution": 0,
+      "outline-filler": 0,
+      "ai-vocabulary": 0,
+      "copula-avoidance": 0,
+      "negative-parallelism": 0,
+      "rule-of-three": 0,
+      "elegant-variation": 0,
+      "false-range": 0,
+      "em-dash-overuse": 0,
+      "boldface-overuse": 0,
+      "inline-header-list": 0,
+      "title-case-heading": 1,
+      "emoji": 0,
+      "curly-quotes": 0,
+      "chatbot-artifact": 0,
+      "knowledge-cutoff": 0,
+      "sycophancy": 0,
+      "filler-phrase": 0,
+      "hedging": 0,
+      "generic-conclusion": 0
+    },
+    "detections": [
+      {
+        "category": "title-case-heading",
+        "severity": "low",
+        "span": {
+          "start": 2628,
+          "end": 2652
+        },
+        "matchedText": "What Lattice actually is",
+        "suggestion": "use sentence case in headings"
+      }
+    ],
+    "textLength": 9063,
+    "perKilochar": 0.11033873993158998
+  },
+  "fingerprint_delta": {
+    "total_words": 1502,
+    "features": [
+      {
+        "feature": "mean_words_per_sentence",
+        "observed": 10.81,
+        "baseline": 12.89,
+        "delta": -2.08,
+        "normalisedDrift": 0.693,
+        "direction": "under",
+        "severity": "medium"
+      },
+      {
+        "feature": "std_dev_words_per_sentence",
+        "observed": 6.75,
+        "baseline": 9.34,
+        "delta": -2.59,
+        "normalisedDrift": 0.863,
+        "direction": "under",
+        "severity": "medium"
+      },
+      {
+        "feature": "mean_sentences_per_paragraph",
+        "observed": 3.72,
+        "baseline": 5.61,
+        "delta": -1.89,
+        "normalisedDrift": 0.945,
+        "direction": "under",
+        "severity": "high"
+      },
+      {
+        "feature": "direct_address_per_1000_words",
+        "observed": 7.99,
+        "baseline": 8.02,
+        "delta": -0.03,
+        "normalisedDrift": 0.01,
+        "direction": "normal",
+        "severity": "low"
+      },
+      {
+        "feature": "parentheticals_per_1000_words",
+        "observed": 8.66,
+        "baseline": 2.09,
+        "delta": 6.57,
+        "normalisedDrift": 1,
+        "direction": "over",
+        "severity": "high"
+      },
+      {
+        "feature": "mid_sentence_ellipses_per_1000_words",
+        "observed": 2.66,
+        "baseline": 4.62,
+        "delta": -1.96,
+        "normalisedDrift": 0.98,
+        "direction": "normal",
+        "severity": "low"
+      },
+      {
+        "feature": "em_dash_interruptions_per_1000_words",
+        "observed": 0,
+        "baseline": 0,
+        "delta": 0,
+        "normalisedDrift": 0,
+        "direction": "normal",
+        "severity": "low"
+      },
+      {
+        "feature": "aussie_markers_per_1000_words",
+        "observed": 0,
+        "baseline": 1.83,
+        "delta": -1.83,
+        "normalisedDrift": 1,
+        "direction": "under",
+        "severity": "low"
+      },
+      {
+        "feature": "profanity_per_1000_words",
+        "observed": 0,
+        "baseline": 1.57,
+        "delta": -1.57,
+        "normalisedDrift": 1,
+        "direction": "under",
+        "severity": "low"
+      }
+    ],
+    "meanDrift": 0.611
+  },
+  "issues": [
+    {
+      "kind": "fingerprint_drift",
+      "severity": "high",
+      "diagnosis": "mean_sentences_per_paragraph is 1.89 below corpus baseline (observed 3.72, baseline 5.61).",
+      "suggestion": "Consolidate. Some paragraphs may be single sentences but most aren't."
+    },
+    {
+      "kind": "fingerprint_drift",
+      "severity": "high",
+      "diagnosis": "parentheticals_per_1000_words is 6.57 above corpus baseline (observed 8.66, baseline 2.09).",
+      "suggestion": "Trim asides; the piece is starting to feel like a footnote sequence."
+    },
+    {
+      "kind": "fingerprint_drift",
+      "severity": "medium",
+      "diagnosis": "mean_words_per_sentence is 2.08 below corpus baseline (observed 10.81, baseline 12.89).",
+      "suggestion": "Stretch one or two sentences out. Add an aside in parens."
+    },
+    {
+      "kind": "fingerprint_drift",
+      "severity": "medium",
+      "diagnosis": "std_dev_words_per_sentence is 2.59 below corpus baseline (observed 6.75, baseline 9.34).",
+      "suggestion": "Vary sentence length aggressively. Mix one-word punches with long, comma-rich sentences."
+    },
+    {
+      "kind": "voice_marker_missing",
+      "severity": "medium",
+      "diagnosis": "Zero Australian-English markers found. The corpus uses 2.7 markers for a piece of this length.",
+      "suggestion": "Spell -our (colour/favour/honour), -ise (recognise/realise), and let \"whilst\" / \"mate\" / \"bloody\" appear where they'd be natural."
+    },
+    {
+      "kind": "slop_pattern",
+      "severity": "low",
+      "location": {
+        "line": 20,
+        "column": 3,
+        "offset": 2628,
+        "length": 24,
+        "excerpt": "What Lattice actually is"
+      },
+      "diagnosis": "Anti-slop pattern \"title-case-heading\" fired on: \"What Lattice actually is\"",
+      "suggestion": "use sentence case in headings"
+    },
+    {
+      "kind": "fingerprint_drift",
+      "severity": "low",
+      "diagnosis": "aussie_markers_per_1000_words is 1.83 below corpus baseline (observed 0, baseline 1.83).",
+      "suggestion": "Use Australian/British spellings (colour, favour, recognise) and let \"whilst\" / \"mate\" / \"bloody\" appear naturally."
+    },
+    {
+      "kind": "fingerprint_drift",
+      "severity": "low",
+      "diagnosis": "profanity_per_1000_words is 1.57 below corpus baseline (observed 0, baseline 1.57).",
+      "suggestion": "Mild profanity is welcome where it fits — \"shit\" / \"fuck\" / \"arse\" used for emphasis."
+    }
+  ],
+  "scores": {
+    "voice_match": 0.389,
+    "slop_per_kilochar": 0.11,
+    "slop_total": 1
+  }
+}
