@@ -1,0 +1,147 @@
+{
+  "bodyAnalysed": "I bought a fridge yesterday.\n\nThat's it. That's the post.\n\nI walked into the store thinking this would take fifteen minutes, maybe twenty if I got distracted by the massage chairs near the entrance. Two hours later I was standing in the \"cooling solutions\" aisle listening to a bloke named Dean explain the difference between a 450 litre French door and a 455 litre French door. Dean was on commission. You could smell it on him. Every time I glanced at a cheaper model he'd physically step between me and the price tag like a mum blocking the TV during a sex scene.\n\nHere's the thing about fridges. They're all the same fridge. Every single one of them is a white box that is cold on the inside, and the only real difference is the sticker on the front and whether the handles are curved or straight. But Dean… Dean spoke about these fridges like they were his children. This one has a \"humidity controlled crisper\". That one has \"multi-flow air distribution\". One of them had a feature called \"door alarm\" which just means it beeps if you leave the door open. Revolutionary.\n\nI nodded along for two hours. Two hours of my life I'll never get back. I opened doors. I closed doors. I opened the same doors again. I looked at the energy rating stars like I understood what they meant, stood there squinting at them and nodding slowly the way you do when someone shows you their newborn and you're trying to figure out which parent it looks like. I did not understand a single star.\n\nThen came the price.\n\nI once bought a 1999 Toyota Corolla for $2,800. Drove it for three years. Took it camping. Slept in it once after a night out in Fortitude Valley because I was too shit-faced to find a cab. That car was my best mate.\n\nThis fridge cost more than that car.\n\nI bought it anyway. Dean was thrilled and I could see him mentally calculating his weekend… the dinner, the drinks, probably a new shirt. Good for you, Dean. You earned it.\n\nIt gets delivered Tuesday. I'm 32 years old and the most exciting thing happening in my life this week is a fridge delivery. I've been checking the tracking number like it's a flight home for Christmas.\n\nNo one warns you about this part.",
+  "slop": {
+    "total": 0,
+    "byCategory": {
+      "significance": 0,
+      "notability": 0,
+      "participles": 0,
+      "promotional": 0,
+      "weasel-attribution": 0,
+      "outline-filler": 0,
+      "ai-vocabulary": 0,
+      "copula-avoidance": 0,
+      "negative-parallelism": 0,
+      "rule-of-three": 0,
+      "elegant-variation": 0,
+      "false-range": 0,
+      "em-dash-overuse": 0,
+      "boldface-overuse": 0,
+      "inline-header-list": 0,
+      "title-case-heading": 0,
+      "emoji": 0,
+      "curly-quotes": 0,
+      "chatbot-artifact": 0,
+      "knowledge-cutoff": 0,
+      "sycophancy": 0,
+      "filler-phrase": 0,
+      "hedging": 0,
+      "generic-conclusion": 0
+    },
+    "detections": [],
+    "textLength": 2171,
+    "perKilochar": 0
+  },
+  "fingerprint_delta": {
+    "total_words": 398,
+    "features": [
+      {
+        "feature": "mean_words_per_sentence",
+        "observed": 9.95,
+        "baseline": 12.89,
+        "delta": -2.94,
+        "normalisedDrift": 0.98
+      },
+      {
+        "feature": "std_dev_words_per_sentence",
+        "observed": 9.64,
+        "baseline": 9.34,
+        "delta": 0.3,
+        "normalisedDrift": 0.1
+      },
+      {
+        "feature": "mean_sentences_per_paragraph",
+        "observed": 3.64,
+        "baseline": 5.61,
+        "delta": -1.97,
+        "normalisedDrift": 0.985
+      },
+      {
+        "feature": "direct_address_per_1000_words",
+        "observed": 20.1,
+        "baseline": 8.02,
+        "delta": 12.08,
+        "normalisedDrift": 1
+      },
+      {
+        "feature": "parentheticals_per_1000_words",
+        "observed": 0,
+        "baseline": 2.09,
+        "delta": -2.09,
+        "normalisedDrift": 1
+      },
+      {
+        "feature": "mid_sentence_ellipses_per_1000_words",
+        "observed": 5.03,
+        "baseline": 4.62,
+        "delta": 0.41,
+        "normalisedDrift": 0.205
+      },
+      {
+        "feature": "em_dash_interruptions_per_1000_words",
+        "observed": 0,
+        "baseline": 0,
+        "delta": 0,
+        "normalisedDrift": 0
+      },
+      {
+        "feature": "aussie_markers_per_1000_words",
+        "observed": 5.03,
+        "baseline": 1.83,
+        "delta": 3.2,
+        "normalisedDrift": 1
+      },
+      {
+        "feature": "profanity_per_1000_words",
+        "observed": 2.51,
+        "baseline": 1.57,
+        "delta": 0.94,
+        "normalisedDrift": 0.627
+      }
+    ],
+    "meanDrift": 0.655
+  },
+  "issues": [
+    {
+      "kind": "fingerprint_drift",
+      "severity": "high",
+      "diagnosis": "mean_words_per_sentence is 2.94 below corpus baseline (observed 9.95, baseline 12.89).",
+      "suggestion": "Stretch one or two sentences out. Add an aside in parens."
+    },
+    {
+      "kind": "fingerprint_drift",
+      "severity": "high",
+      "diagnosis": "mean_sentences_per_paragraph is 1.97 below corpus baseline (observed 3.64, baseline 5.61).",
+      "suggestion": "Consolidate. Some paragraphs may be single sentences but most aren't."
+    },
+    {
+      "kind": "fingerprint_drift",
+      "severity": "high",
+      "diagnosis": "direct_address_per_1000_words is 12.08 above corpus baseline (observed 20.1, baseline 8.02).",
+      "suggestion": "Pull back on direct address; not every paragraph needs to address the reader."
+    },
+    {
+      "kind": "fingerprint_drift",
+      "severity": "high",
+      "diagnosis": "parentheticals_per_1000_words is 2.09 below corpus baseline (observed 0, baseline 2.09).",
+      "suggestion": "Add a parenthetical aside or two — they're part of the voice."
+    },
+    {
+      "kind": "fingerprint_drift",
+      "severity": "high",
+      "diagnosis": "aussie_markers_per_1000_words is 3.2 above corpus baseline (observed 5.03, baseline 1.83).",
+      "suggestion": "You're piling on Aussie markers; one or two per paragraph is plenty."
+    },
+    {
+      "kind": "fingerprint_drift",
+      "severity": "medium",
+      "diagnosis": "profanity_per_1000_words is 0.94 above corpus baseline (observed 2.51, baseline 1.57).",
+      "suggestion": "Cool the swearing; corpus is sparing."
+    }
+  ],
+  "scores": {
+    "voice_match": 0.345,
+    "slop_per_kilochar": 0,
+    "slop_total": 0
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "bodyAnalysed": "Tuesday. Coles car park. Engine off, windows up, phone in my hand.\n\nMy grandfather sent me a voice message. He's 84. He has never sent one before. I don't mean he hasn't sent one in a while. I mean the man has owned a mobile phone for maybe six years and I'm fairly certain he still calls it \"the bloody thing\".\n\nThe message was three minutes long.\n\nMost of it... and I mean a solid two and a half minutes... was him trying to work out if it was recording. You could hear him breathing. Tapping the screen. Saying \"hello?\" like the phone might answer back. At one point he said \"oh for Christ's sake\" under his breath and I could hear what I think was him putting it down on a table and picking it back up again.\n\nThen right at the end, in this slightly impatient voice (like he was annoyed at himself for even doing this), he said: \"I just wanted to tell you I'm proud of you, and I hope you're well, and I won't be around forever so I thought I should say it.\"\n\nThen he hung up.\n\nThat was it.\n\nI listened to it three times. Sat there in the car with the air con clicking and trolleys rattling past and someone's kid screaming about a Freddo Frog and I just... sat there. Three times. Not because I missed something. Because I didn't know what to do with it.\n\nThe men in my family don't do this. That's not a complaint, it's just the architecture of the house I grew up in. My grandfather once drove eleven hours to help my dad fix a water tank and they barely spoke the whole weekend. That was love. Showing up was the language. You mowed someone's lawn. You lent them your ute. You picked their kids up from school without being asked. You didn't say the word \"proud\" out loud because that would be... I don't know. Too much. Too bare. Like walking outside without your skin on.\n\nPop (I've always called him Pop, everyone does) grew up on a cattle property outside Emerald. He left school at fourteen. Married Nan at twenty. Worked for fifty years and never once, not once in my entire life, told me he was proud of me to my face. He'd tell Nan. Nan would tell Mum. Mum would tell me. That was the system. It worked. The words arrived. They just took the scenic route.\n\nSo what happened on Tuesday?\n\nI keep thinking about that. What made an 84 year old man pick up a phone he barely understands and fumble through three minutes of frustration just to say one sentence? Was it a doctor's appointment? A mate's funeral? Did he just wake up and think... today? Was he scared? Was he angry at himself for leaving it so long? I don't know. I'll probably never ask.\n\nHere's the thing that properly got me. It wasn't the words. The words were good (obviously, the words were good, the words were everything). But it was the fumbling. Those two and a half minutes of him struggling with the technology. Because that was the hard part for him. Not saying the thing... getting to the point where he could say it. He fought through a piece of technology that makes no sense to him, that he doesn't trust, that he would happily throw at a wall on most days... just to reach me. The obstacle was the message before the message.\n\nI sat in that car park for maybe twenty minutes after the third listen. Thought about calling him back. Didn't. Thought about sending a voice message of my own. Didn't do that either. Texted Mum instead and said \"Pop sent me something nice\" and she wrote back \"Oh that's lovely\" with a full stop, which for Mum is practically weeping.\n\nI eventually sent him a text. Kept it short because he would have wanted it short. Said thanks Pop, love you, talk soon.\n\nHe wrote back two hours later.\n\n\"Ok.\"\n\nThat's my family. That's how we do it. A man breaks the unspoken rule of forty years on a Tuesday morning, and we all quietly absorb it and keep moving. Nobody makes a fuss. The fuss would ruin it.\n\nBut I saved that voice message. Backed it up twice. And I reckon I'll listen to it again on days when I need to hear an old man clear his throat and swear at his phone and then, almost as an afterthought, say the biggest thing he's ever said to me.\n\nThree minutes. Two and a half of them useless.\n\nThe other thirty seconds I'll keep forever.",
+  "slop": {
+    "total": 0,
+    "byCategory": {
+      "significance": 0,
+      "notability": 0,
+      "participles": 0,
+      "promotional": 0,
+      "weasel-attribution": 0,
+      "outline-filler": 0,
+      "ai-vocabulary": 0,
+      "copula-avoidance": 0,
+      "negative-parallelism": 0,
+      "rule-of-three": 0,
+      "elegant-variation": 0,
+      "false-range": 0,
+      "em-dash-overuse": 0,
+      "boldface-overuse": 0,
+      "inline-header-list": 0,
+      "title-case-heading": 0,
+      "emoji": 0,
+      "curly-quotes": 0,
+      "chatbot-artifact": 0,
+      "knowledge-cutoff": 0,
+      "sycophancy": 0,
+      "filler-phrase": 0,
+      "hedging": 0,
+      "generic-conclusion": 0
+    },
+    "detections": [],
+    "textLength": 4156,
+    "perKilochar": 0
+  },
+  "fingerprint_delta": {
+    "total_words": 786,
+    "features": [
+      {
+        "feature": "mean_words_per_sentence",
+        "observed": 8.45,
+        "baseline": 12.89,
+        "delta": -4.44,
+        "normalisedDrift": 1
+      },
+      {
+        "feature": "std_dev_words_per_sentence",
+        "observed": 8.68,
+        "baseline": 9.34,
+        "delta": -0.66,
+        "normalisedDrift": 0.22
+      },
+      {
+        "feature": "mean_sentences_per_paragraph",
+        "observed": 4.43,
+        "baseline": 5.61,
+        "delta": -1.18,
+        "normalisedDrift": 0.59
+      },
+      {
+        "feature": "direct_address_per_1000_words",
+        "observed": 13.99,
+        "baseline": 8.02,
+        "delta": 5.97,
+        "normalisedDrift": 1
+      },
+      {
+        "feature": "parentheticals_per_1000_words",
+        "observed": 3.82,
+        "baseline": 2.09,
+        "delta": 1.73,
+        "normalisedDrift": 1
+      },
+      {
+        "feature": "mid_sentence_ellipses_per_1000_words",
+        "observed": 8.91,
+        "baseline": 4.62,
+        "delta": 4.29,
+        "normalisedDrift": 1
+      },
+      {
+        "feature": "em_dash_interruptions_per_1000_words",
+        "observed": 0,
+        "baseline": 0,
+        "delta": 0,
+        "normalisedDrift": 0
+      },
+      {
+        "feature": "aussie_markers_per_1000_words",
+        "observed": 5.09,
+        "baseline": 1.83,
+        "delta": 3.26,
+        "normalisedDrift": 1
+      },
+      {
+        "feature": "profanity_per_1000_words",
+        "observed": 0,
+        "baseline": 1.57,
+        "delta": -1.57,
+        "normalisedDrift": 1
+      }
+    ],
+    "meanDrift": 0.757
+  },
+  "issues": [
+    {
+      "kind": "fingerprint_drift",
+      "severity": "high",
+      "diagnosis": "mean_words_per_sentence is 4.44 below corpus baseline (observed 8.45, baseline 12.89).",
+      "suggestion": "Stretch one or two sentences out. Add an aside in parens."
+    },
+    {
+      "kind": "fingerprint_drift",
+      "severity": "high",
+      "diagnosis": "direct_address_per_1000_words is 5.97 above corpus baseline (observed 13.99, baseline 8.02).",
+      "suggestion": "Pull back on direct address; not every paragraph needs to address the reader."
+    },
+    {
+      "kind": "fingerprint_drift",
+      "severity": "high",
+      "diagnosis": "parentheticals_per_1000_words is 1.73 above corpus baseline (observed 3.82, baseline 2.09).",
+      "suggestion": "Trim asides; the piece is starting to feel like a footnote sequence."
+    },
+    {
+      "kind": "fingerprint_drift",
+      "severity": "high",
+      "diagnosis": "mid_sentence_ellipses_per_1000_words is 4.29 above corpus baseline (observed 8.91, baseline 4.62).",
+      "suggestion": "Trim ellipses; not every sentence needs to drift off."
+    },
+    {
+      "kind": "fingerprint_drift",
+      "severity": "high",
+      "diagnosis": "aussie_markers_per_1000_words is 3.26 above corpus baseline (observed 5.09, baseline 1.83).",
+      "suggestion": "You're piling on Aussie markers; one or two per paragraph is plenty."
+    },
+    {
+      "kind": "fingerprint_drift",
+      "severity": "high",
+      "diagnosis": "profanity_per_1000_words is 1.57 below corpus baseline (observed 0, baseline 1.57).",
+      "suggestion": "Mild profanity is welcome where it fits — \"shit\" / \"fuck\" / \"arse\" used for emphasis."
+    },
+    {
+      "kind": "fingerprint_drift",
+      "severity": "medium",
+      "diagnosis": "mean_sentences_per_paragraph is 1.18 below corpus baseline (observed 4.43, baseline 5.61).",
+      "suggestion": "Consolidate. Some paragraphs may be single sentences but most aren't."
+    }
+  ],
+  "scores": {
+    "voice_match": 0.243,
+    "slop_per_kilochar": 0,
+    "slop_total": 0
+  }
+}

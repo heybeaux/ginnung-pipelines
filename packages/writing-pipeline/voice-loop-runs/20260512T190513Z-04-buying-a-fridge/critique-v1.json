@@ -1,0 +1,159 @@
+{
+  "bodyAnalysed": "I bought a fridge yesterday.\n\nThat's it. That's the post.\n\nI walked into the store thinking this would take fifteen minutes. Maybe twenty if I got distracted by the massage chairs near the entrance. Two hours later I was standing in the \"cooling solutions\" aisle (their words, not mine) listening to a bloke named Dean explain the difference between a 450 litre French door and a 455 litre French door. Dean was on commission. You could smell it on him. Every time I glanced at a cheaper model he'd physically step between me and the price tag like a mum blocking the TV during a sex scene.\n\nHere's the thing about fridges. They're all the same fridge. Every single one. White box. Cold inside. Some have a water thing. Some don't. The only difference is the sticker on the front and whether the handles are curved or straight. That's it. That is the entire product range. But Dean… Dean spoke about these fridges like they were his children. This one has a \"humidity controlled crisper\". That one has \"multi-flow air distribution\". One of them (and I swear this is true) had a feature called \"door alarm\" which just means it beeps if you leave the door open. Revolutionary.\n\nI nodded along for two hours. Two hours of my life I'll never get back. I opened doors. I closed doors. I opened the same doors again. I looked at the energy rating stars like I understood what they meant. I did not.\n\nThen came the price.\n\nI once bought a 1999 Toyota Corolla for $2,800. Drove it for three years. Took it camping. Slept in it once after a night out in Fortitude Valley. That car was my best mate.\n\nThis fridge cost more than that car.\n\nI bought it anyway. Dean was thrilled. I could see him mentally calculating his weekend. Good for you, Dean.\n\nIt gets delivered Tuesday. I'm 32 years old and the most exciting thing happening in my life this week is a fridge delivery.\n\nNo one warns you about this part of adulthood.",
+  "slop": {
+    "total": 0,
+    "byCategory": {
+      "significance": 0,
+      "notability": 0,
+      "participles": 0,
+      "promotional": 0,
+      "weasel-attribution": 0,
+      "outline-filler": 0,
+      "ai-vocabulary": 0,
+      "copula-avoidance": 0,
+      "negative-parallelism": 0,
+      "rule-of-three": 0,
+      "elegant-variation": 0,
+      "false-range": 0,
+      "em-dash-overuse": 0,
+      "boldface-overuse": 0,
+      "inline-header-list": 0,
+      "title-case-heading": 0,
+      "emoji": 0,
+      "curly-quotes": 0,
+      "chatbot-artifact": 0,
+      "knowledge-cutoff": 0,
+      "sycophancy": 0,
+      "filler-phrase": 0,
+      "hedging": 0,
+      "generic-conclusion": 0
+    },
+    "detections": [],
+    "textLength": 1911,
+    "perKilochar": 0
+  },
+  "fingerprint_delta": {
+    "total_words": 348,
+    "features": [
+      {
+        "feature": "mean_words_per_sentence",
+        "observed": 7.73,
+        "baseline": 12.89,
+        "delta": -5.16,
+        "normalisedDrift": 1
+      },
+      {
+        "feature": "std_dev_words_per_sentence",
+        "observed": 7.21,
+        "baseline": 9.34,
+        "delta": -2.13,
+        "normalisedDrift": 0.71
+      },
+      {
+        "feature": "mean_sentences_per_paragraph",
+        "observed": 4.09,
+        "baseline": 5.61,
+        "delta": -1.52,
+        "normalisedDrift": 0.76
+      },
+      {
+        "feature": "direct_address_per_1000_words",
+        "observed": 11.49,
+        "baseline": 8.02,
+        "delta": 3.47,
+        "normalisedDrift": 1
+      },
+      {
+        "feature": "parentheticals_per_1000_words",
+        "observed": 5.75,
+        "baseline": 2.09,
+        "delta": 3.66,
+        "normalisedDrift": 1
+      },
+      {
+        "feature": "mid_sentence_ellipses_per_1000_words",
+        "observed": 2.87,
+        "baseline": 4.62,
+        "delta": -1.75,
+        "normalisedDrift": 0.875
+      },
+      {
+        "feature": "em_dash_interruptions_per_1000_words",
+        "observed": 0,
+        "baseline": 0,
+        "delta": 0,
+        "normalisedDrift": 0
+      },
+      {
+        "feature": "aussie_markers_per_1000_words",
+        "observed": 5.75,
+        "baseline": 1.83,
+        "delta": 3.92,
+        "normalisedDrift": 1
+      },
+      {
+        "feature": "profanity_per_1000_words",
+        "observed": 0,
+        "baseline": 1.57,
+        "delta": -1.57,
+        "normalisedDrift": 1
+      }
+    ],
+    "meanDrift": 0.816
+  },
+  "issues": [
+    {
+      "kind": "fingerprint_drift",
+      "severity": "high",
+      "diagnosis": "mean_words_per_sentence is 5.16 below corpus baseline (observed 7.73, baseline 12.89).",
+      "suggestion": "Stretch one or two sentences out. Add an aside in parens."
+    },
+    {
+      "kind": "fingerprint_drift",
+      "severity": "high",
+      "diagnosis": "direct_address_per_1000_words is 3.47 above corpus baseline (observed 11.49, baseline 8.02).",
+      "suggestion": "Pull back on direct address; not every paragraph needs to address the reader."
+    },
+    {
+      "kind": "fingerprint_drift",
+      "severity": "high",
+      "diagnosis": "parentheticals_per_1000_words is 3.66 above corpus baseline (observed 5.75, baseline 2.09).",
+      "suggestion": "Trim asides; the piece is starting to feel like a footnote sequence."
+    },
+    {
+      "kind": "fingerprint_drift",
+      "severity": "high",
+      "diagnosis": "aussie_markers_per_1000_words is 3.92 above corpus baseline (observed 5.75, baseline 1.83).",
+      "suggestion": "You're piling on Aussie markers; one or two per paragraph is plenty."
+    },
+    {
+      "kind": "fingerprint_drift",
+      "severity": "high",
+      "diagnosis": "profanity_per_1000_words is 1.57 below corpus baseline (observed 0, baseline 1.57).",
+      "suggestion": "Mild profanity is welcome where it fits — \"shit\" / \"fuck\" / \"arse\" used for emphasis."
+    },
+    {
+      "kind": "fingerprint_drift",
+      "severity": "medium",
+      "diagnosis": "std_dev_words_per_sentence is 2.13 below corpus baseline (observed 7.21, baseline 9.34).",
+      "suggestion": "Vary sentence length aggressively. Mix one-word punches with long, comma-rich sentences."
+    },
+    {
+      "kind": "fingerprint_drift",
+      "severity": "medium",
+      "diagnosis": "mean_sentences_per_paragraph is 1.52 below corpus baseline (observed 4.09, baseline 5.61).",
+      "suggestion": "Consolidate. Some paragraphs may be single sentences but most aren't."
+    },
+    {
+      "kind": "fingerprint_drift",
+      "severity": "medium",
+      "diagnosis": "mid_sentence_ellipses_per_1000_words is 1.75 below corpus baseline (observed 2.87, baseline 4.62).",
+      "suggestion": "Use a mid-sentence ellipsis where you want a beat or a trailing-off."
+    }
+  ],
+  "scores": {
+    "voice_match": 0.184,
+    "slop_per_kilochar": 0,
+    "slop_total": 0
+  }
+}

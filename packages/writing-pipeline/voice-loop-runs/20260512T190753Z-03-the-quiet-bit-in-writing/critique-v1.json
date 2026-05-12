@@ -1,0 +1,153 @@
+{
+  "bodyAnalysed": "Coffee.\n\nThat's where it starts. Every single time. The kettle, the cup, the little ritual of pouring. You'd think the writing starts when your fingers hit the keys but it doesn't. Not even close. The writing starts somewhere around the first sip, when you sit down, open the laptop, watch the cursor blink, and then… don't write.\n\nYou scroll. You check something. You read back over the last thing you wrote and convince yourself it's either brilliant or garbage (there is no in between). You get up. You wash a dish. Not all the dishes, just one. Just enough to feel like you did something. Then you come back, sit down, look at the screen again.\n\nNothing.\n\nSo you make a second coffee.\n\nI used to think this was procrastination. I used to sit there in that dead space between intention and action and feel genuinely guilty about it. Like I was wasting time. Like every other writer on the planet just sat down and went. Like the cursor was judging me. And look, I know how it sounds from the outside. It sounds lazy. It sounds like I'm finding excuses. My partner has walked past my desk more than once and seen me staring at a blank screen whilst petting the dog and thought… yeah, that bloke's not working.\n\nBut here's the thing. I was.\n\nI just didn't know it yet.\n\nThere's this moment that nobody really talks about. Not the typing (that's the loud bit, the productive bit, the bit you screenshot for Instagram if you're that kind of person). I mean the moment before. The moment where you've committed. You've decided you're writing today. The laptop's open. The document's there. The coffee is going cold. And you're just… sitting in it. Waiting. For what? You don't know. Something has to land first. Some shape of a sentence. Some angle into the idea that wasn't there five minutes ago. You can feel it circling but you can't grab it.\n\nSo you walk the dog.\n\nAnd somewhere between your front door and the end of the street, it lands. A first line. An image. A rhythm. Something clicks into place and suddenly you know how to get in. Not what you're going to say (that comes later, messily, in real time) but how to start saying it. The angle. The door into the room.\n\nThen you go. And it pours out. And you look back at the clock and realise you wrote 800 words in 25 minutes and it took you an hour and a half to get there.\n\nI think we've been lied to about what productivity looks like. Or maybe not lied to. Maybe we just absorbed it through osmosis. The idea that work is visible. That if you're not typing, you're not writing. That the gap between sitting down and producing words is a failure of discipline. There are whole books about this. Whole YouTube channels. Some bloke with perfect posture telling you to just start, just write anything, even if it's bad, because momentum is everything.\n\nAnd sure. Sometimes that works. Sometimes you can brute force your way through the quiet bit and come out the other side with something decent. But for me… the stuff I force out never reads like the stuff I waited for. The forced stuff is technically fine. It has structure. It makes sense. But it doesn't have that thing. That energy. That feeling of the words having arrived rather than been assembled.\n\nI know this sounds wanky. I promise I'm not trying to be precious about \"the craft\" or whatever. I'm not sitting around waiting for my muse to descend from the heavens wrapped in silk. I'm washing a dish. There's a difference.\n\nWhat I've figured out (and it took me years to figure this out, which is embarrassing) is that the quiet bit is the work. The sitting. The scrolling. The second coffee. The dog walk. That's when your brain is doing the thing it actually needs to do before the fingers can move. It's sorting. It's discarding angles that won't work. It's circling closer and closer to the thing you actually want to say until finally… it finds the thread.\n\nAnd you pull.\n\nI've stopped feeling guilty about it. Properly stopped. Not in the way where you tell yourself you've stopped but still feel a little twinge every time you get up from the desk to put the kettle on. Actually stopped. Because I started paying attention and I noticed something. The days I fought through the quiet bit, I'd write 500 words and delete 400 of them the next morning. The days I let the quiet bit do its thing, I'd write 800 and keep 750.\n\nThe maths is pretty clear.\n\nSo this is my advice to nobody in particular (because who am I to give advice). If you sit down to write and the words don't come straight away… that's fine. That's not a problem. That's the first part. The invisible part. You're not procrastinating. You're loading. You're letting the machine warm up. And when the sentence lands, you'll know. You'll feel it click. And then you go.\n\nBut first, the coffee.",
+  "slop": {
+    "total": 0,
+    "byCategory": {
+      "significance": 0,
+      "notability": 0,
+      "participles": 0,
+      "promotional": 0,
+      "weasel-attribution": 0,
+      "outline-filler": 0,
+      "ai-vocabulary": 0,
+      "copula-avoidance": 0,
+      "negative-parallelism": 0,
+      "rule-of-three": 0,
+      "elegant-variation": 0,
+      "false-range": 0,
+      "em-dash-overuse": 0,
+      "boldface-overuse": 0,
+      "inline-header-list": 0,
+      "title-case-heading": 0,
+      "emoji": 0,
+      "curly-quotes": 0,
+      "chatbot-artifact": 0,
+      "knowledge-cutoff": 0,
+      "sycophancy": 0,
+      "filler-phrase": 0,
+      "hedging": 0,
+      "generic-conclusion": 0
+    },
+    "detections": [],
+    "textLength": 4786,
+    "perKilochar": 0
+  },
+  "fingerprint_delta": {
+    "total_words": 867,
+    "features": [
+      {
+        "feature": "mean_words_per_sentence",
+        "observed": 7.47,
+        "baseline": 12.89,
+        "delta": -5.42,
+        "normalisedDrift": 1
+      },
+      {
+        "feature": "std_dev_words_per_sentence",
+        "observed": 6.46,
+        "baseline": 9.34,
+        "delta": -2.88,
+        "normalisedDrift": 0.96
+      },
+      {
+        "feature": "mean_sentences_per_paragraph",
+        "observed": 5.52,
+        "baseline": 5.61,
+        "delta": -0.09,
+        "normalisedDrift": 0.045
+      },
+      {
+        "feature": "direct_address_per_1000_words",
+        "observed": 56.52,
+        "baseline": 8.02,
+        "delta": 48.5,
+        "normalisedDrift": 1
+      },
+      {
+        "feature": "parentheticals_per_1000_words",
+        "observed": 5.77,
+        "baseline": 2.09,
+        "delta": 3.68,
+        "normalisedDrift": 1
+      },
+      {
+        "feature": "mid_sentence_ellipses_per_1000_words",
+        "observed": 6.92,
+        "baseline": 4.62,
+        "delta": 2.3,
+        "normalisedDrift": 1
+      },
+      {
+        "feature": "em_dash_interruptions_per_1000_words",
+        "observed": 0,
+        "baseline": 0,
+        "delta": 0,
+        "normalisedDrift": 0
+      },
+      {
+        "feature": "aussie_markers_per_1000_words",
+        "observed": 4.61,
+        "baseline": 1.83,
+        "delta": 2.78,
+        "normalisedDrift": 1
+      },
+      {
+        "feature": "profanity_per_1000_words",
+        "observed": 0,
+        "baseline": 1.57,
+        "delta": -1.57,
+        "normalisedDrift": 1
+      }
+    ],
+    "meanDrift": 0.778
+  },
+  "issues": [
+    {
+      "kind": "fingerprint_drift",
+      "severity": "high",
+      "diagnosis": "mean_words_per_sentence is 5.42 below corpus baseline (observed 7.47, baseline 12.89).",
+      "suggestion": "Stretch one or two sentences out. Add an aside in parens."
+    },
+    {
+      "kind": "fingerprint_drift",
+      "severity": "high",
+      "diagnosis": "std_dev_words_per_sentence is 2.88 below corpus baseline (observed 6.46, baseline 9.34).",
+      "suggestion": "Vary sentence length aggressively. Mix one-word punches with long, comma-rich sentences."
+    },
+    {
+      "kind": "fingerprint_drift",
+      "severity": "high",
+      "diagnosis": "direct_address_per_1000_words is 48.5 above corpus baseline (observed 56.52, baseline 8.02).",
+      "suggestion": "Pull back on direct address; not every paragraph needs to address the reader."
+    },
+    {
+      "kind": "fingerprint_drift",
+      "severity": "high",
+      "diagnosis": "parentheticals_per_1000_words is 3.68 above corpus baseline (observed 5.77, baseline 2.09).",
+      "suggestion": "Trim asides; the piece is starting to feel like a footnote sequence."
+    },
+    {
+      "kind": "fingerprint_drift",
+      "severity": "high",
+      "diagnosis": "mid_sentence_ellipses_per_1000_words is 2.3 above corpus baseline (observed 6.92, baseline 4.62).",
+      "suggestion": "Trim ellipses; not every sentence needs to drift off."
+    },
+    {
+      "kind": "fingerprint_drift",
+      "severity": "high",
+      "diagnosis": "aussie_markers_per_1000_words is 2.78 above corpus baseline (observed 4.61, baseline 1.83).",
+      "suggestion": "You're piling on Aussie markers; one or two per paragraph is plenty."
+    },
+    {
+      "kind": "fingerprint_drift",
+      "severity": "high",
+      "diagnosis": "profanity_per_1000_words is 1.57 below corpus baseline (observed 0, baseline 1.57).",
+      "suggestion": "Mild profanity is welcome where it fits — \"shit\" / \"fuck\" / \"arse\" used for emphasis."
+    }
+  ],
+  "scores": {
+    "voice_match": 0.222,
+    "slop_per_kilochar": 0,
+    "slop_total": 0
+  }
+}
