@@ -1,0 +1,762 @@
+{
+  "version": 1,
+  "generated_at": "2026-05-12T00:00:00.000Z",
+  "corpus_source": "tumblr-archive-2013-2014-sample",
+  "corpus_files": [
+    "01-a-travelers-tattoo.md",
+    "02-food-poisoning-at-last.md",
+    "03-writers-block-next-turn-left.md",
+    "04-5-minutes-of-emotion.md",
+    "05-finding-my-muse.md",
+    "06-doms-now-means-days-of-muscle-soreness.md",
+    "07-just-call-me-steve-mcqueen-please.md",
+    "08-leaving-china-aka-its-never-going-to-happen.md",
+    "09-my-last-day-as-a-kung-fu-student-in-china.md",
+    "10-that-fighting-spirit.md",
+    "11-death-in-the-family.md",
+    "12-when-it-rains-it-pours.md",
+    "13-no-sleep-required.md",
+    "14-well-deserved-break.md",
+    "15-return-to-civilisation.md",
+    "16-new-beginnings.md",
+    "17-crack-ruins-lives.md",
+    "18-time-to-get-serious.md",
+    "19-haunted-house.md",
+    "20-starting-to-feel-like-family.md",
+    "21-4-weeks-down.md",
+    "22-the-tattoo-experience.md",
+    "23-ink-optional.md",
+    "24-beautiful.md",
+    "25-blood-sweat-and-tears-and-blood-lots-of-blood.md",
+    "26-basics-check.md",
+    "27-go-harder-faster.md"
+  ],
+  "total_words": 11474,
+  "total_posts": 27,
+  "sentence_distribution": {
+    "sentence_count": 890,
+    "mean_words_per_sentence": 12.89,
+    "std_dev_words_per_sentence": 9.34,
+    "length_histogram": [
+      {
+        "range": "1-5",
+        "count": 226
+      },
+      {
+        "range": "6-10",
+        "count": 187
+      },
+      {
+        "range": "11-20",
+        "count": 307
+      },
+      {
+        "range": "21-40",
+        "count": 157
+      },
+      {
+        "range": "41+",
+        "count": 13
+      }
+    ],
+    "shortest_sentence_words": 0,
+    "longest_sentence_words": 53
+  },
+  "paragraph_distribution": {
+    "paragraph_count": 159,
+    "mean_sentences_per_paragraph": 5.61,
+    "std_dev_sentences_per_paragraph": 5.53
+  },
+  "direct_address": {
+    "count": 92,
+    "direct_address_per_1000_words": 8.02
+  },
+  "self_interruption": {
+    "parentheticals": 24,
+    "em_dash_interruptions": 0,
+    "mid_sentence_ellipses": 53,
+    "parentheticals_per_1000_words": 2.09,
+    "em_dash_interruptions_per_1000_words": 0,
+    "mid_sentence_ellipses_per_1000_words": 4.62
+  },
+  "aussie_markers": {
+    "aussie_marker_count": 21,
+    "aussie_markers_per_1000_words": 1.83,
+    "matches": [
+      {
+        "marker": "whilst",
+        "count": 5
+      },
+      {
+        "marker": "arse",
+        "count": 4
+      },
+      {
+        "marker": "honour",
+        "count": 3
+      },
+      {
+        "marker": "mate",
+        "count": 3
+      },
+      {
+        "marker": "colourful",
+        "count": 1
+      },
+      {
+        "marker": "properly",
+        "count": 1
+      },
+      {
+        "marker": "flavour",
+        "count": 1
+      },
+      {
+        "marker": "stuffed",
+        "count": 1
+      },
+      {
+        "marker": "arsehole",
+        "count": 1
+      },
+      {
+        "marker": "humour",
+        "count": 1
+      }
+    ]
+  },
+  "profanity": {
+    "count": 18,
+    "profanity_per_1000_words": 1.57,
+    "per_post": [
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      3,
+      3,
+      3,
+      2,
+      2,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "large_numbers": {
+    "large_number_count": 55,
+    "large_numbers_per_1000_words": 4.79
+  },
+  "opener_categories": [
+    {
+      "category": "other",
+      "count": 10,
+      "examples": [
+        "We all know someone who has a tattoo, or two, or in my case, 27.",
+        "My mission to leave China was doomed from the start.",
+        "So, today I watched a man die."
+      ]
+    },
+    {
+      "category": "concrete_observation",
+      "count": 9,
+      "examples": [
+        "During my travels, I've made a point of eating at some of the dodgiest places I can find.",
+        "Friday.",
+        "As some of you may be aware, Friday is mountain run day."
+      ]
+    },
+    {
+      "category": "first_person_present",
+      "count": 4,
+      "examples": [
+        "I love that my blog is mostly fun and exciting stories.",
+        "I thought I'd be sensible and have a week off of training after pushing myself training Kung Fu in China for 5 months.",
+        "I thought leaving Zhengzhou would be the last of my \"dramas\" in China."
+      ]
+    },
+    {
+      "category": "thesis",
+      "count": 2,
+      "examples": [
+        "There is a curse that many writers know all too well.",
+        "Writing is incredibly fun."
+      ]
+    },
+    {
+      "category": "first_person_past",
+      "count": 2,
+      "examples": [
+        "I've been pretty quiet lately as I have spent the last week or so back in Australia.",
+        "I've now been training in China for a month and I've come to the realisation that if I hope to become truly exceptional at the martial arts, then I really need to step up my training and approach."
+      ]
+    }
+  ],
+  "closer_categories": [
+    {
+      "category": "other",
+      "count": 11,
+      "examples": [
+        "But be warned; never show your tattoo artist you can afford an iPad.",
+        "In fact, maybe that's the very bus I'm sitting on right now…",
+        "It's the least I could do to show you how proud I am of you."
+      ]
+    },
+    {
+      "category": "concrete_observation",
+      "count": 9,
+      "examples": [
+        "food poisoning sucks.",
+        "Hahahahahaha.",
+        "Arsehole\"."
+      ]
+    },
+    {
+      "category": "first_person_present",
+      "count": 5,
+      "examples": [
+        "I know it's not much, but well done guys.",
+        "I'm honestly not sure which life I appreciate more.",
+        "I'm really grateful."
+      ]
+    },
+    {
+      "category": "thesis",
+      "count": 2,
+      "examples": [
+        "This really is the birthplace of Shaolin.",
+        "This is going to be a blast!"
+      ]
+    }
+  ],
+  "top_content_words": [
+    {
+      "word": "back",
+      "count": 37
+    },
+    {
+      "word": "china",
+      "count": 34
+    },
+    {
+      "word": "start",
+      "count": 34
+    },
+    {
+      "word": "want",
+      "count": 32
+    },
+    {
+      "word": "little",
+      "count": 31
+    },
+    {
+      "word": "look",
+      "count": 30
+    },
+    {
+      "word": "much",
+      "count": 30
+    },
+    {
+      "word": "feel",
+      "count": 29
+    },
+    {
+      "word": "know",
+      "count": 28
+    },
+    {
+      "word": "time",
+      "count": 28
+    },
+    {
+      "word": "hour",
+      "count": 27
+    },
+    {
+      "word": "minute",
+      "count": 27
+    },
+    {
+      "word": "thought",
+      "count": 26
+    },
+    {
+      "word": "now",
+      "count": 25
+    },
+    {
+      "word": "make",
+      "count": 24
+    },
+    {
+      "word": "off",
+      "count": 24
+    },
+    {
+      "word": "train",
+      "count": 24
+    },
+    {
+      "word": "way",
+      "count": 24
+    },
+    {
+      "word": "first",
+      "count": 23
+    },
+    {
+      "word": "head",
+      "count": 22
+    },
+    {
+      "word": "people",
+      "count": 22
+    },
+    {
+      "word": "friend",
+      "count": 21
+    },
+    {
+      "word": "need",
+      "count": 20
+    },
+    {
+      "word": "take",
+      "count": 20
+    },
+    {
+      "word": "week",
+      "count": 20
+    },
+    {
+      "word": "made",
+      "count": 19
+    },
+    {
+      "word": "place",
+      "count": 18
+    },
+    {
+      "word": "seem",
+      "count": 18
+    },
+    {
+      "word": "tattoo",
+      "count": 18
+    },
+    {
+      "word": "left",
+      "count": 17
+    },
+    {
+      "word": "taxi",
+      "count": 17
+    },
+    {
+      "word": "word",
+      "count": 17
+    },
+    {
+      "word": "every",
+      "count": 16
+    },
+    {
+      "word": "man",
+      "count": 16
+    },
+    {
+      "word": "said",
+      "count": 16
+    },
+    {
+      "word": "sure",
+      "count": 16
+    },
+    {
+      "word": "another",
+      "count": 15
+    },
+    {
+      "word": "day",
+      "count": 15
+    },
+    {
+      "word": "explain",
+      "count": 15
+    },
+    {
+      "word": "finally",
+      "count": 15
+    },
+    {
+      "word": "plane",
+      "count": 15
+    },
+    {
+      "word": "see",
+      "count": 15
+    },
+    {
+      "word": "someth",
+      "count": 15
+    },
+    {
+      "word": "writer",
+      "count": 15
+    },
+    {
+      "word": "around",
+      "count": 14
+    },
+    {
+      "word": "check",
+      "count": 14
+    },
+    {
+      "word": "come",
+      "count": 14
+    },
+    {
+      "word": "form",
+      "count": 14
+    },
+    {
+      "word": "new",
+      "count": 14
+    },
+    {
+      "word": "next",
+      "count": 14
+    },
+    {
+      "word": "think",
+      "count": 14
+    },
+    {
+      "word": "asked",
+      "count": 13
+    },
+    {
+      "word": "even",
+      "count": 13
+    },
+    {
+      "word": "find",
+      "count": 13
+    },
+    {
+      "word": "last",
+      "count": 13
+    },
+    {
+      "word": "sleep",
+      "count": 13
+    },
+    {
+      "word": "smeli",
+      "count": 13
+    },
+    {
+      "word": "took",
+      "count": 13
+    },
+    {
+      "word": "turn",
+      "count": 13
+    },
+    {
+      "word": "wait",
+      "count": 13
+    },
+    {
+      "word": "work",
+      "count": 13
+    },
+    {
+      "word": "beer",
+      "count": 12
+    },
+    {
+      "word": "good",
+      "count": 12
+    },
+    {
+      "word": "hand",
+      "count": 12
+    },
+    {
+      "word": "life",
+      "count": 12
+    },
+    {
+      "word": "pretty",
+      "count": 12
+    },
+    {
+      "word": "story",
+      "count": 12
+    },
+    {
+      "word": "trying",
+      "count": 12
+    },
+    {
+      "word": "board",
+      "count": 11
+    },
+    {
+      "word": "chest",
+      "count": 11
+    },
+    {
+      "word": "enough",
+      "count": 11
+    },
+    {
+      "word": "felt",
+      "count": 11
+    },
+    {
+      "word": "guys",
+      "count": 11
+    },
+    {
+      "word": "however",
+      "count": 11
+    },
+    {
+      "word": "love",
+      "count": 11
+    },
+    {
+      "word": "month",
+      "count": 11
+    },
+    {
+      "word": "right",
+      "count": 11
+    },
+    {
+      "word": "session",
+      "count": 11
+    },
+    {
+      "word": "since",
+      "count": 11
+    },
+    {
+      "word": "someone",
+      "count": 11
+    },
+    {
+      "word": "travel",
+      "count": 11
+    },
+    {
+      "word": "almighty",
+      "count": 10
+    },
+    {
+      "word": "bit",
+      "count": 10
+    },
+    {
+      "word": "end",
+      "count": 10
+    },
+    {
+      "word": "help",
+      "count": 10
+    },
+    {
+      "word": "home",
+      "count": 10
+    },
+    {
+      "word": "idea",
+      "count": 10
+    },
+    {
+      "word": "journey",
+      "count": 10
+    },
+    {
+      "word": "kick",
+      "count": 10
+    },
+    {
+      "word": "lot",
+      "count": 10
+    },
+    {
+      "word": "mind",
+      "count": 10
+    },
+    {
+      "word": "quickly",
+      "count": 10
+    },
+    {
+      "word": "shaolin",
+      "count": 10
+    },
+    {
+      "word": "storie",
+      "count": 10
+    },
+    {
+      "word": "told",
+      "count": 10
+    },
+    {
+      "word": "walk",
+      "count": 10
+    },
+    {
+      "word": "well",
+      "count": 10
+    },
+    {
+      "word": "wish",
+      "count": 10
+    },
+    {
+      "word": "actually",
+      "count": 9
+    },
+    {
+      "word": "allow",
+      "count": 9
+    }
+  ],
+  "corpus_slop_score": {
+    "total": 10,
+    "byCategory": {
+      "significance": 0,
+      "notability": 0,
+      "participles": 0,
+      "promotional": 0,
+      "weasel-attribution": 0,
+      "outline-filler": 0,
+      "ai-vocabulary": 0,
+      "copula-avoidance": 0,
+      "negative-parallelism": 0,
+      "rule-of-three": 3,
+      "elegant-variation": 0,
+      "false-range": 0,
+      "em-dash-overuse": 0,
+      "boldface-overuse": 0,
+      "inline-header-list": 0,
+      "title-case-heading": 0,
+      "emoji": 0,
+      "curly-quotes": 0,
+      "chatbot-artifact": 1,
+      "knowledge-cutoff": 0,
+      "sycophancy": 0,
+      "filler-phrase": 4,
+      "hedging": 0,
+      "generic-conclusion": 0
+    },
+    "detections": [
+      {
+        "category": "filler-phrase",
+        "severity": "low",
+        "span": {
+          "start": 127,
+          "end": 138
+        },
+        "matchedText": "a number of",
+        "suggestion": "cut to a single verb: \"to\" not \"in order to\", \"can\" not \"has the ability to\""
+      },
+      {
+        "category": "filler-phrase",
+        "severity": "low",
+        "span": {
+          "start": 19461,
+          "end": 19479
+        },
+        "matchedText": "for the purpose of",
+        "suggestion": "cut to a single verb: \"to\" not \"in order to\", \"can\" not \"has the ability to\""
+      },
+      {
+        "category": "chatbot-artifact",
+        "severity": "high",
+        "span": {
+          "start": 32733,
+          "end": 32749
+        },
+        "matchedText": "feel free to ask",
+        "suggestion": "delete; chat artifacts have no place in a published essay"
+      },
+      {
+        "category": "rule-of-three",
+        "severity": "low",
+        "span": {
+          "start": 35581,
+          "end": 35693
+        },
+        "matchedText": "officer knelt down next to Mr Smeli, no sense of urgency whatsoever, and tried to check for a pulse in his neck.",
+        "suggestion": "pick the two items that matter; let the third go"
+      },
+      {
+        "category": "rule-of-three",
+        "severity": "low",
+        "span": {
+          "start": 37697,
+          "end": 37788
+        },
+        "matchedText": "They will be assessed on their basics, and a month or so later their first form, and so on.",
+        "suggestion": "pick the two items that matter; let the third go"
+      },
+      {
+        "category": "rule-of-three",
+        "severity": "low",
+        "span": {
+          "start": 45334,
+          "end": 45418
+        },
+        "matchedText": "were allowed to get out and look around, get something to eat, and stretch our legs.",
+        "suggestion": "pick the two items that matter; let the third go"
+      },
+      {
+        "category": "filler-phrase",
+        "severity": "low",
+        "span": {
+          "start": 58099,
+          "end": 58110
+        },
+        "matchedText": "in terms of",
+        "suggestion": "cut to a single verb: \"to\" not \"in order to\", \"can\" not \"has the ability to\""
+      },
+      {
+        "category": "filler-phrase",
+        "severity": "low",
+        "span": {
+          "start": 59598,
+          "end": 59609
+        },
+        "matchedText": "in order to",
+        "suggestion": "cut to a single verb: \"to\" not \"in order to\", \"can\" not \"has the ability to\""
+      }
+    ],
+    "textLength": 60998,
+    "perKilochar": 0.16393980130496083
+  }
+}
