@@ -1,0 +1,9 @@
+node_modules
+dist
+.DS_Store
+voice-corpus/raw/.cache/
+*.tsbuildinfo
+coverage
+.turbo
+.env
+.env.local

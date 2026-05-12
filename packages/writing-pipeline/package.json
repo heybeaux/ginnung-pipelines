@@ -1,0 +1,41 @@
+{
+  "name": "@heybeaux/ginnung-writing-pipeline",
+  "version": "0.0.0",
+  "description": "Writing pipeline for the Ginnung dogfood loop — one-line idea to publishable essay, with SonderEvent trail and voice/anti-slop enforcement.",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./voice": {
+      "import": "./dist/voice/index.js",
+      "types": "./dist/voice/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "bin": {
+    "ginnung-write": "./dist/cli/write.js",
+    "ginnung-stress": "./dist/cli/stress.js"
+  },
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsup": "^8.3.0",
+    "typescript": "^5.6.0",
+    "vitest": "^2.1.0"
+  }
+}
