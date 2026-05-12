@@ -15,6 +15,10 @@
     "./voice": {
       "import": "./dist/voice/index.js",
       "types": "./dist/voice/index.d.ts"
+    },
+    "./voice/anti-slop": {
+      "import": "./dist/voice/anti-slop/index.js",
+      "types": "./dist/voice/anti-slop/index.d.ts"
     }
   },
   "files": [
