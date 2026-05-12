@@ -266,10 +266,10 @@ export async function draftEssay(
 }
 
 function buildDefaultClient(): Anthropic {
-  if (!process.env['ANTHROPIC_API_KEY']) {
+  if (!process.env['ANTHROPIC_API_KEY'] && !process.env['ANTHROPIC_AUTH_TOKEN']) {
     throw new Error(
-      'draftEssay: ANTHROPIC_API_KEY is not set. Export it before running ' +
-        'the voice loop (or pass `client` for tests).',
+      'draftEssay: neither ANTHROPIC_API_KEY nor ANTHROPIC_AUTH_TOKEN is set. ' +
+        'Export one before running the voice loop (or pass `client` for tests).',
     );
   }
   return new Anthropic();

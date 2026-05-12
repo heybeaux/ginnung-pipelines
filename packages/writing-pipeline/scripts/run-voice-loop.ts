@@ -17,6 +17,8 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { dirname, join, basename, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import Anthropic from '@anthropic-ai/sdk';
+
 import {
   draftEssay,
   reviseDraft,
@@ -87,10 +89,7 @@ function printUsage(): void {
 // ---------------------------------------------------------------------------
 
 async function main(): Promise<void> {
-  if (!process.env['ANTHROPIC_API_KEY']) {
-    console.error('FATAL: ANTHROPIC_API_KEY is not set. Export it and re-run.');
-    process.exit(1);
-  }
+  const { client, modelOverride } = resolveClient();
 
   const cli = parseCli(process.argv.slice(2));
   const { idea, ideaSource } = resolveIdea(cli);
@@ -114,7 +113,11 @@ async function main(): Promise<void> {
 
   // ---- 1. Draft -----------------------------------------------------------
   console.error('[voice-loop] drafting...');
-  const draftResult = await draftEssay(idea, { system });
+  const draftResult = await draftEssay(idea, {
+    system,
+    client,
+    ...(modelOverride ? { model: modelOverride } : {}),
+  });
   writeFileSync(join(outDir, 'draft.md'), draftResult.draft + '\n');
 
   // ---- 2. Critique v1 -----------------------------------------------------
@@ -137,6 +140,8 @@ async function main(): Promise<void> {
     idea,
     fingerprint,
     system,
+    client,
+    ...(modelOverride ? { model: modelOverride } : {}),
   });
   writeFileSync(join(outDir, 'revised.md'), reviseResult.finalDraft + '\n');
   writeFileSync(
@@ -169,6 +174,41 @@ async function main(): Promise<void> {
 // ---------------------------------------------------------------------------
 // Helpers
 // ---------------------------------------------------------------------------
+
+/**
+ * Resolve which Anthropic client to use, in this priority:
+ *  1. ANTHROPIC_API_KEY — production raw API key (Messages API).
+ *  2. ANTHROPIC_AUTH_TOKEN — OAuth bearer token (Claude Code / inference scope).
+ *  3. OPENROUTER_API_KEY — route through OpenRouter's Anthropic-compatible
+ *     /v1/messages endpoint. Model id is rewritten to anthropic/claude-opus-4.6
+ *     since that's how OpenRouter slugs it.
+ *
+ * Fails loudly if none of the three are present.
+ */
+function resolveClient(): { client: Anthropic; modelOverride?: string } {
+  if (process.env['ANTHROPIC_API_KEY']) {
+    console.error('[voice-loop] auth: ANTHROPIC_API_KEY (direct)');
+    return { client: new Anthropic() };
+  }
+  if (process.env['ANTHROPIC_AUTH_TOKEN']) {
+    console.error('[voice-loop] auth: ANTHROPIC_AUTH_TOKEN (oauth bearer)');
+    return { client: new Anthropic({ authToken: process.env['ANTHROPIC_AUTH_TOKEN']! }) };
+  }
+  if (process.env['OPENROUTER_API_KEY']) {
+    console.error('[voice-loop] auth: OPENROUTER_API_KEY (via openrouter.ai)');
+    const client = new Anthropic({
+      authToken: process.env['OPENROUTER_API_KEY']!,
+      baseURL: 'https://openrouter.ai/api',
+      // OpenRouter doesn't require/want the x-api-key header — strip it.
+      defaultHeaders: { 'x-api-key': '' },
+    });
+    return { client, modelOverride: 'anthropic/claude-opus-4.6' };
+  }
+  console.error(
+    'FATAL: none of ANTHROPIC_API_KEY, ANTHROPIC_AUTH_TOKEN, OPENROUTER_API_KEY are set.',
+  );
+  process.exit(1);
+}
 
 function resolveIdea(cli: Cli): { idea: string; ideaSource: string } {
   if (cli.ideaFile) {
